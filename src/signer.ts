@@ -42,8 +42,6 @@ bitcoin.initEccLib(ecc);
 let network = bitcoin.networks.bitcoin;
 if (BTC_NETWORK === 'regtest') {
     network = bitcoin.networks.testnet;
-} else if (BTC_NETWORK === 'signet') {
-  network = bitcoin.networks.signet;
 } else if (BTC_NETWORK === 'testnet') {
   network = bitcoin.networks.testnet;
 }
