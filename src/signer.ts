@@ -39,7 +39,7 @@ import {
 
 bitcoin.initEccLib(ecc);
 
-let network = bitcoin.network.bitcoin;
+let network = bitcoin.networks.bitcoin;
 if (BTC_NETWORK === 'regtest') {
     network = bitcoin.networks.testnet;
 } else if (BTC_NETWORK === 'signet') {
