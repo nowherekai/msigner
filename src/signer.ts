@@ -39,10 +39,14 @@ import {
 
 bitcoin.initEccLib(ecc);
 
-const network =
-  BTC_NETWORK === 'mainnet'
-    ? bitcoin.networks.bitcoin
-    : bitcoin.networks.testnet;
+let network = bitcoin.network.bitcoin;
+if (BTC_NETWORK === 'regtest') {
+    network = bitcoin.networks.testnet;
+} else if (BTC_NETWORK === 'signet') {
+  network = bitcoin.networks.signet;
+} else if (BTC_NETWORK === 'testnet') {
+  network = bitcoin.networks.testnet;
+}
 
 export namespace SellerSigner {
   export async function generateUnsignedListingPSBTBase64(
